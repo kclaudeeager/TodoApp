@@ -1,5 +1,6 @@
 package com.hfad.workout.Adapters;
 import static com.hfad.workout.MainActivity.todoDao;
+import static com.hfad.workout.MainActivity.todoItemsToUse;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -27,6 +28,7 @@ import com.hfad.workout.R;
 import com.hfad.workout.models.TodoItem;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class TodoViewHolder extends RecyclerView.ViewHolder {
     TextView  titleTxt,periority,createdAt,updatedAt;
@@ -57,7 +59,11 @@ public class TodoViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View view) {
                 todoItem.setDone(done.isChecked());
-                AsyncTask.execute(()-> { todoDao.update(todoItem);});
+                todoItem.setUpdatedAt(new Date());
+                AsyncTask.execute(()-> {
+                    todoDao.update(todoItem);
+                });
+
             }
         });
     }
