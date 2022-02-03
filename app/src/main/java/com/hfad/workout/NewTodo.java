@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,6 +27,10 @@ public class NewTodo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_todo);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.w_logo);
         titleText=(EditText) findViewById(R.id.todotitle);
         descriptionTxt=(EditText) findViewById(R.id.tododescrition);
         spinner=(Spinner) findViewById(R.id.periorities);
@@ -61,5 +66,15 @@ public class NewTodo extends AppCompatActivity {
                 }
             }
         });
+    }
+    @Override
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                NewTodo.this.finish();
+
+        }
+        return true;
     }
 }

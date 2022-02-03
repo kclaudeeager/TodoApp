@@ -32,6 +32,9 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.todo_detail);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.w_logo);
         titleText=(EditText) findViewById(R.id.title_detail);
         descriptionTxt=(EditText) findViewById(R.id.tododescrition_detail);
         spinner=(Spinner) findViewById(R.id.periorities_detail);

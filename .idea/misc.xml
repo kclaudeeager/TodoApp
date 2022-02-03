@@ -17,12 +17,16 @@
         <entry key="..\:/Workout1/app/src/main/res/drawable/high_periority.xml" value="0.112" />
         <entry key="..\:/Workout1/app/src/main/res/drawable/low_periority.xml" value="0.1" />
         <entry key="..\:/Workout1/app/src/main/res/drawable/medium_periority.xml" value="0.1" />
+        <entry key="..\:/Workout1/app/src/main/res/layout-land/todo_list.xml" value="0.1" />
+        <entry key="..\:/Workout1/app/src/main/res/layout-land/with_task.xml" value="0.33" />
         <entry key="..\:/Workout1/app/src/main/res/layout/activity_detail.xml" value="0.1" />
         <entry key="..\:/Workout1/app/src/main/res/layout/activity_new_todo.xml" value="0.13697916666666668" />
         <entry key="..\:/Workout1/app/src/main/res/layout/fragment_todo_detail.xml" value="0.13697916666666668" />
         <entry key="..\:/Workout1/app/src/main/res/layout/todo_detail.xml" value="0.25" />
-        <entry key="..\:/Workout1/app/src/main/res/layout/todo_list.xml" value="0.1403985507246377" />
+        <entry key="..\:/Workout1/app/src/main/res/layout/todo_list.xml" value="0.22" />
         <entry key="..\:/Workout1/app/src/main/res/layout/todo_list_item.xml" value="0.22" />
+        <entry key="..\:/Workout1/app/src/main/res/layout/with_task.xml" value="0.33" />
+        <entry key="..\:/Workout1/app/src/main/res/layout/zero_task.xml" value="0.67" />
       </map>
     </option>
   </component>
