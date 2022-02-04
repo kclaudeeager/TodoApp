@@ -3,7 +3,7 @@
 
 ## This app is made in android , so it requires from android version 5 to earler one
 
-## You will need Internet for installation but after that you are free to use it offlinne
+## You won't need Internet for installation feel free to use it offlinne
  ## The App apk
  
 
