@@ -9,10 +9,13 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -40,10 +43,39 @@ public class MainActivity extends AppCompatActivity
        getSupportActionBar().setDisplayShowTitleEnabled(true);
        getSupportActionBar().setIcon(R.drawable.w_logo);
         todoItemsToUse=new ArrayList<>();
+        EditText search=(EditText) findViewById(R.id.search);
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+          filter(editable.toString());
+            }
+
+
+
+        });
      Compute();
     }
+           private void filter(String text){
+        ArrayList<TodoItem> temp=new ArrayList<>();
+               for (TodoItem item:todoItemsToUse) {
 
-public void onShowNewTodo(View view){
+                   if (item.getTitle().contains(text.toLowerCase()) || item.getTitle().contains(text.toUpperCase())){
+                       temp.add(item);
+                   }
+               }
+               adapter.updateList(temp);
+           }
+           public void onShowNewTodo(View view){
     Intent intent;
     intent = new Intent(this,
             NewTodo.class);

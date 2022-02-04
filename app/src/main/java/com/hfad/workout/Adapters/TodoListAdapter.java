@@ -50,7 +50,10 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoViewHolder> {
         holder.BindStudent(todoItem);
         todoViewHolder=holder;
     }
-
+public void updateList(ArrayList<TodoItem> todoItemArrayList){
+        todoItems=todoItemArrayList;
+        notifyDataSetChanged();
+}
     @Override
     public int getItemCount() {
         return todoItems.size();
