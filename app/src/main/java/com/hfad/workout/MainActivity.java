@@ -13,6 +13,9 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -70,6 +73,16 @@ public class MainActivity extends AppCompatActivity
                for (TodoItem item:todoItemsToUse) {
 
                    if (item.getTitle().contains(text.toLowerCase()) || item.getTitle().contains(text.toUpperCase())){
+                       temp.add(item);
+                   }
+               }
+               adapter.updateList(temp);
+           }
+           private void filterPeriority(String per){
+               ArrayList<TodoItem> temp=new ArrayList<>();
+               for (TodoItem item:todoItemsToUse) {
+
+                   if (item.getPeriority().equalsIgnoreCase(per)){
                        temp.add(item);
                    }
                }
@@ -168,6 +181,29 @@ public void Compute(){
            @Override
            protected void onStart() {
                super.onStart();
+
+           }
+           public boolean onCreateOptionsMenu(Menu menu) {
+               MenuInflater inflater = getMenuInflater();
+              inflater.inflate(R.menu.my_menu, menu);
+
+               return true;
+           }
+           public boolean onOptionsItemSelected(MenuItem item) {
+
+               switch (item.getItemId()) {
+                   case R.id.lowp:
+                       filterPeriority("Low");
+                       return true;
+                   case R.id.hp:
+                       filterPeriority("High");
+                       return true;
+                   case R.id.mp:
+                       filterPeriority("Medium");
+                       return true;
+                   default:
+                       return super.onOptionsItemSelected(item);
+               }
 
            }
        }
