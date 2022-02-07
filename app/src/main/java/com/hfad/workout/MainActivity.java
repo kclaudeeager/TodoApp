@@ -4,6 +4,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -55,12 +56,12 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                filter(charSequence.toString());
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-          filter(editable.toString());
+               // filter(editable.toString());
             }
 
 
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity
         ArrayList<TodoItem> temp=new ArrayList<>();
                for (TodoItem item:todoItemsToUse) {
 
-                   if (item.getTitle().contains(text.toLowerCase()) || item.getTitle().contains(text.toUpperCase())){
+                   if (item.getTitle().toLowerCase().contains(text.toLowerCase())){
                        temp.add(item);
                    }
                }
@@ -105,7 +106,9 @@ public void Compute(){
     todoItemsToUse=new ArrayList<>();
 
     final   Handler handler=new Handler();
-
+    final ProgressDialog progressDialog = new ProgressDialog(this);
+    progressDialog.setCancelable(true);
+    progressDialog.setMessage("Please wait for loading....");
     AsyncTask.execute(()->{
         TodoDatabase db = Room.databaseBuilder(this,
                 TodoDatabase.class, "TodoDatabase").build();

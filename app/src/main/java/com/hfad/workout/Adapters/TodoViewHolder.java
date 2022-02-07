@@ -97,5 +97,4 @@ public class TodoViewHolder extends RecyclerView.ViewHolder {
         this.todoItem=todoItem;
     }
 
-
 }
